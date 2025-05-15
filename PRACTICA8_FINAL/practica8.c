@@ -12,6 +12,7 @@ struct libro {
     char autorLibro[100];
     int anoLibro;
     int cantidadLibros;
+    int copiasTotales;
 };
 
 
@@ -53,6 +54,8 @@ int main() {
             scanf("%d", &libroNuevo.cantidadLibros);
             getchar();
 
+            libroNuevo.copiasTotales = libroNuevo.cantidadLibros;
+
             agregarLibro(&libroNuevo);
             printf("Libro Guardado Correctamente\n");
             break;
@@ -77,14 +80,8 @@ int main() {
             scanf("%[^\n]", libroDevolver.nombreLibro);
             getchar();
 
-            printf("Ingrese el autor del libro: ");
-            scanf("%[^\n]", libroDevolver.autorLibro);
-            getchar();
-
-            printf("Ingrese el ano de publicacion de libro: ");
-            scanf("%d", &libroDevolver.anoLibro);
-            getchar();
-
+            strcpy(libroDevolver.autorLibro, "hola");
+            libroDevolver.anoLibro = 2025;
             libroDevolver.cantidadLibros = 1;
 
             devolverLibro(&libroDevolver);
